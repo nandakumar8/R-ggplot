@@ -50,15 +50,11 @@ BAR+geom_bar(stat="identity",position="dodge")+scale_fill_brewer(palette=5)
 INTERNET<-read.csv("C:\\Users\\Nandakumar\\Desktop\\ggplot\\internet.csv")
 
 HIST<-ggplot(INTERNET,aes(INTERNET[,5]),fill=count)
-HIST+geom_histogram(binwidth=.5)+scale_fill_gradient()
+HIST+geom_histogram()
 
 ###create boxplot
-
-BOX_DATA<-data.frame(INTERNET[1:20,1],INTERNET[0:20,2:5])
-BOX_DATA<-t(BOX_DATA)
-BOX<-ggplot(BOX_DATA,aes(x=BOX_DATA[1,5:8],y=BOX_DATA[2:4,5:8]))
-BOX+geom_boxplot()
-
+attach(mtcars)
+ggplot(mtcars,aes(x=factor(cyl),y=wt,fill=factor(cyl)))+geom_boxplot()
 
 
 
